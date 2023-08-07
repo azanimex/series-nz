@@ -52,6 +52,14 @@ module.exports = {
   // you provide. See the documentation for details.
   links: [
     {
+      name: 'facebook',
+      link: 'https://www.facebook.com/AzAnimex/',
+    },
+    {
+      name: 'twitter',
+      link: 'https://twitter.com/AzAnimex',
+    },
+    {
       name: 'discord',
       link: 'https://discord.gg/cKQ2aDXMfa',
     },
