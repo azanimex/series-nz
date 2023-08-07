@@ -52,15 +52,15 @@ module.exports = {
   // you provide. See the documentation for details.
   links: [
     {
-      name: 'facebook',
+      name: 'Facebook',
       link: 'https://www.facebook.com/AzAnimex/',
     },
     {
-      name: 'twitter',
+      name: 'Twitter',
       link: 'https://twitter.com/AzAnimex',
     },
     {
-      name: 'discord',
+      name: 'Discord',
       link: 'https://discord.gg/cKQ2aDXMfa',
     },
   ],
