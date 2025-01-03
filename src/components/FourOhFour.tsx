@@ -1,13 +1,13 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 
-const FourOhFour: React.FC = () => {
+interface FourOhFourProps {
+  errorMsg?: string;
+}
+
+const FourOhFour: React.FC<FourOhFourProps> = ({ errorMsg }) => {
   const router = useRouter();
-  
-  // Obtiene la ruta actual completa
   const currentPath = router.asPath;
-  
-  // Construye el nuevo enlace reemplazando el dominio
   const newLink = `https://series-nz2.az-animex.com${currentPath}`;
 
   return (
@@ -28,10 +28,10 @@ const FourOhFour: React.FC = () => {
         </div>
         <h1 className="mt-5 text-[36px] font-bold text-slate-800 lg:text-[50px]">Error 404</h1>
         <p className="text-slate-600 mt-5 lg:text-lg">
-          La página que buscas no está disponible hasta las 21hs UTC-3.{' '}
+          {errorMsg || 'La página que buscas no existe o ha sido movida.'}{' '}
           <br />
           <a href={newLink} className="text-blue-600 hover:underline">
-            Puedes usar este enlace de respaldo
+            Intenta buscar aquí
           </a>
         </p>
       </div>
