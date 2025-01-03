@@ -1,42 +1,24 @@
-import React from 'react';
-import { useRouter } from 'next/router';
+import Image from 'next/image'
+import { Trans } from 'next-i18next'
+import { useRouter } from 'next/router'
 
-interface FourOhFourProps {
-  errorMsg?: string;
-}
-
-const FourOhFour: React.FC<FourOhFourProps> = ({ errorMsg }) => {
-  const router = useRouter();
-  const currentPath = router.asPath;
-  const newLink = `https://series-nz2.az-animex.com${currentPath}`;
+const FourOhFour: React.FC<{ errorMsg: string }> = ({ errorMsg }) => {
+  const router = useRouter()
+  const currentPath = router.asPath
+  const backupUrl = `https://series-nz2.az-animex.com${currentPath}`
 
   return (
-    <div className="flex h-[calc(100vh-80px)] items-center justify-center p-5 w-full bg-white">
-      <div className="text-center">
-        <div className="inline-flex rounded-full bg-red-100 p-4">
-          <div className="rounded-full stroke-red-600 bg-red-200 p-4">
-            <svg className="w-16 h-16" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M6 8H6.01M6 16H6.01M6 12H18C20.2091 12 22 10.2091 22 8C22 5.79086 20.2091 4 18 4H6C3.79086 4 2 5.79086 2 8C2 10.2091 3.79086 12 6 12ZM6 12C3.79086 12 2 13.7909 2 16C2 18.2091 3.79086 20 6 20H14"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              ></path>
-              <path d="M17 16L22 21M22 16L17 21" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
-            </svg>
-          </div>
+    <div className="my-12">
+      <div className="mx-auto w-1/3">
+        <Image src="/images/fabulous-rip-2.png" alt="404" width={912} height={912} priority />
+      </div>
+      <div className="mx-auto mt-6 max-w-xl text-gray-500">
+        <div className="mb-8 text-xl font-bold">
+          El servidor llegó a su límite de cuota diaria. Tendrás que esperar hasta las 21hs UTC-3 para su reinicio o ir al servidor de respaldo mediante <a className="text-blue-600 hover:text-blue-700 hover:underline" href={backupUrl} target="_blank" rel="noopener noreferrer">este enlace</a>.
         </div>
-        <h1 className="mt-5 text-[36px] font-bold text-slate-800 lg:text-[50px]">Error 404</h1>
-        <p className="text-slate-600 mt-5 lg:text-lg">
-          {errorMsg || 'La página que buscas no existe o ha sido movida.'}{' '}
-          <br />
-          <a href={newLink} className="text-blue-600 hover:underline">
-            Intenta buscar aquí
-          </a>
-        </p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default FourOhFour;
+export default FourOhFour
